@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIGHT FİLO | Premium Araç Kiralama</title>
-    <script src="config.js"></script>
     <meta name="description" content="Premium araç kiralama hizmeti. Lüks, ekonomi ve SUV araç kiralama seçenekleri ile hizmetinizdeyiz.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -207,14 +206,8 @@
                 <form id="reservation-form">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-gray-700 mb-2">Araç Seçimi *</label>
-                            <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
-                                <option value="">Araç seçin</option>
-                                <option value="bmw">BMW 3 Serisi</option>
-                                <option value="mercedes">Mercedes C Serisi</option>
-                                <option value="audi">Audi A4</option>
-                                <option value="volkswagen">Volkswagen Passat</option>
-                            </select>
+                            <label class="block text-gray-700 mb-2">Araç</label>
+                            <input id="selected-vehicle" name="vehicle" type="text" readonly class="w-full border border-gray-300 rounded-lg px-4 py-3 bg-gray-100">
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Kiralama Tipi *</label>
@@ -237,12 +230,12 @@
                             <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Teslim almak istediğiniz adres" required>
                         </div>
                         <div>
-                            <label class="block text-gray-700 mb-2">Adınız *</label>
-                            <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <label class="block text-gray-700 mb-2">Adınız</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                         <div>
-                            <label class="block text-gray-700 mb-2">Soyadınız *</label>
-                            <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <label class="block text-gray-700 mb-2">Soyadınız</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Telefon *</label>
@@ -1357,8 +1350,8 @@
                     const vehicle = vehicles.find(v => v.id == vehicleId);
                     
                     if (vehicle) {
-                        const select = reservationForm.querySelector('select');
-                        select.value = vehicle.name.toLowerCase();
+                        const vehicleInput = document.getElementById('selected-vehicle');
+                        vehicleInput.value = vehicle.name;
                     }
                     
                     reservationModal.classList.add('active');
@@ -1369,7 +1362,7 @@
                     event.preventDefault();
                     const btn = event.target.closest('.whatsapp-btn');
                     const vehicleName = btn.getAttribute('data-vehicle');
-                    const phoneNumber = SITE_CONFIG.whatsappNumber;
+                    const phoneNumber = "905551234567";
                     const message = `Merhaba, ${vehicleName} aracı hakkında bilgi almak istiyorum.`;
                     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
                 }
@@ -1377,7 +1370,7 @@
                 // Call buttons
                 else if (event.target.closest('.call-btn')) {
                     event.preventDefault();
-                    window.location.href = `tel:+${SITE_CONFIG.callNumber}`;
+                    window.location.href = 'tel:+905551234567';
                 }
                 
                 // Detail buttons
@@ -1424,7 +1417,7 @@
                 const data = Object.fromEntries(formData);
                 
                 // Prepare WhatsApp message
-                const phoneNumber = SITE_CONFIG.whatsappNumber;
+                const phoneNumber = "905551234567";
                 const message = `Yeni Rezervasyon Talebi:
 Araç: ${data[''] || 'Seçilmedi'}
 Tip: ${data[''] || 'Seçilmedi'}
