@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIGHT FİLO | Premium Araç Kiralama</title>
+    <script src="config.js"></script>
     <meta name="description" content="Premium araç kiralama hizmeti. Lüks, ekonomi ve SUV araç kiralama seçenekleri ile hizmetinizdeyiz.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -1368,7 +1369,7 @@
                     event.preventDefault();
                     const btn = event.target.closest('.whatsapp-btn');
                     const vehicleName = btn.getAttribute('data-vehicle');
-                    const phoneNumber = "905551234567";
+                    const phoneNumber = SITE_CONFIG.whatsappNumber;
                     const message = `Merhaba, ${vehicleName} aracı hakkında bilgi almak istiyorum.`;
                     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
                 }
@@ -1376,7 +1377,7 @@
                 // Call buttons
                 else if (event.target.closest('.call-btn')) {
                     event.preventDefault();
-                    window.location.href = 'tel:+905551234567';
+                    window.location.href = `tel:+${SITE_CONFIG.callNumber}`;
                 }
                 
                 // Detail buttons
@@ -1423,7 +1424,7 @@
                 const data = Object.fromEntries(formData);
                 
                 // Prepare WhatsApp message
-                const phoneNumber = "905551234567";
+                const phoneNumber = SITE_CONFIG.whatsappNumber;
                 const message = `Yeni Rezervasyon Talebi:
 Araç: ${data[''] || 'Seçilmedi'}
 Tip: ${data[''] || 'Seçilmedi'}
