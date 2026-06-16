@@ -67,7 +67,7 @@
                 </div>
                 <ul id="nav-menu" class="flex flex-wrap justify-center gap-4 md:gap-8"></ul>
                 <div class="mt-4 md:mt-0">
-                    <button onclick="window.location.href='tel:'+(window.SITE_CONFIG?.callNumber||'905532937374')" class="bg-white text-primary px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">
+                    <button onclick="window.location.href='tel:'+(window.SITE_CONFIG?.callNumber||'905019558524')" class="bg-white text-primary px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">
                         <i class="fas fa-phone-alt mr-2"></i>Hemen Ara
                     </button>
                 </div>
@@ -85,7 +85,7 @@
                     <button onclick="document.getElementById('reservation-modal').classList.add('active')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition flex items-center justify-center">
                         <i class="fas fa-calendar-alt mr-2"></i>Rezervasyon Yap
                     </button>
-                    <button onclick="window.open(`https://wa.me/${window.SITE_CONFIG?.whatsappNumber||'905543428004'}`,'_blank')" class="bg-white text-primary border border-primary px-8 py-3 rounded-full font-semibold hover:bg-red-50 transition flex items-center justify-center">
+                    <button onclick="window.open(`https://wa.me/${window.SITE_CONFIG?.whatsappNumber||'905019558524'}`,'_blank')" class="bg-white text-primary border border-primary px-8 py-3 rounded-full font-semibold hover:bg-red-50 transition flex items-center justify-center">
                         <i class="fab fa-whatsapp mr-2"></i>WhatsApp'tan Yaz
                     </button>
                 </div>
@@ -1365,7 +1365,7 @@
                     event.preventDefault();
                     const btn = event.target.closest('.whatsapp-btn');
                     const vehicleName = btn.getAttribute('data-vehicle');
-                    const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "905543428004");
+                    const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "905019558524");
                     const message = `Merhaba, ${vehicleName} aracı hakkında bilgi almak istiyorum.`;
                     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
                 }
@@ -1373,7 +1373,7 @@
                 // Call buttons
                 else if (event.target.closest('.call-btn')) {
                     event.preventDefault();
-                    window.location.href = 'tel:+905532937374';
+                    window.location.href = 'tel:+905019558524';
                 }
                 
                 // Detail buttons
@@ -1420,7 +1420,7 @@
                 const data = Object.fromEntries(formData);
                 
                 // Prepare WhatsApp message
-                const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "905543428004");
+                const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "905019558524");
                 const message = `Yeni Rezervasyon Talebi:
 Araç: ${data[''] || 'Seçilmedi'}
 Tip: ${data[''] || 'Seçilmedi'}
