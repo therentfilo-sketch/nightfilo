@@ -1,1 +1,1 @@
-const SITE_CONFIG={whatsappNumber:"905019558524",callNumber:"05019558524"};
+const SITE_CONFIG={whatsappNumber:"905545367956",callNumber:"05513722656"};
